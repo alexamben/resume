@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f8f9fa">
+  <title>Admin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23298ff5'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='white' text-anchor='middle'%3EMC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;700;800&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --head:"Saira Extra Condensed","Arial Narrow",system-ui,sans-serif;
+      --body:"Mulish",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+    }
+    html[data-theme="light"]{
+      --bg:#ffffff; --side:#f8f9fa; --panel:#f1f5f9;
+      --line:#e2e8f0; --text:#212529; --muted:#5b6773; --muted2:#7b8792;
+      --primary:#298ff5; --red:#c03a3c;
+      --shadow:0 10px 30px #0a253014;
+      color-scheme:light;
+    }
+    html[data-theme="dark"]{
+      --bg:#0e141b; --side:#121a24; --panel:#1a2430;
+      --line:#26333f; --text:#e8eef3; --muted:#a3b2bd; --muted2:#7e8e9a;
+      --primary:#5aa8f7; --red:#ff7b72;
+      --shadow:0 12px 34px #0007;
+      color-scheme:dark;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--body);
+      transition:background .3s ease,color .3s ease}
+    a{color:var(--primary)}
+    button{font-family:var(--body)}
+    [hidden]{display:none!important}
+
+    /* top bar */
+    .a-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;
+      padding:10px 16px;background:var(--side);border-bottom:1px solid var(--line);
+      flex-wrap:wrap;min-height:56px}
+    .a-brand{font:800 1.3rem var(--head);text-transform:uppercase;letter-spacing:.5px;margin-right:auto;text-decoration:none;color:var(--text)}
+    .a-brand b{color:var(--primary)}
+    .t-btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:9px;
+      padding:8px 13px;font:700 .84rem var(--body);cursor:pointer;transition:all .2s;white-space:nowrap}
+    .t-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .t-btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+    .t-btn.primary:hover{filter:brightness(1.08);color:#fff}
+    .t-btn.danger{color:var(--red);border-color:color-mix(in srgb,var(--red) 40%,transparent)}
+    .t-btn.danger:hover{background:var(--red);color:#fff}
+    .user-chip{display:inline-flex;align-items:center;gap:8px;font:700 .8rem var(--body);color:var(--muted);
+      border:1px solid var(--line);border-radius:99px;padding:4px 12px 4px 4px}
+    .user-chip img{width:26px;height:26px;border-radius:50%}
+
+    /* gate cards */
+    .gate{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+      padding:24px;overflow:auto;
+      background:color-mix(in srgb,var(--bg) 78%,transparent);
+      backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+    .gate-card{max-width:440px;width:100%;background:var(--side);border:1px solid var(--line);
+      border-radius:18px;padding:38px 34px;box-shadow:var(--shadow);text-align:center}
+    .gate-card h1{font:800 2.4rem var(--head);text-transform:uppercase;letter-spacing:.5px;margin:0 0 8px}
+    .gate-card h1 b{color:var(--primary)}
+    .gate-card p{color:var(--muted);font-size:.94rem}
+    .gate-card.deny h1{color:var(--red)}
+    .gate-note{font:600 .78rem var(--mono);color:var(--muted2);letter-spacing:.04em;
+      border-top:1px dashed var(--line);padding-top:14px;margin-top:22px}
+    .gate-warn{color:var(--red);font-weight:700;font-size:.85rem}
+    #gsiButton{display:flex;justify-content:center;min-height:44px;margin:18px 0 4px}
+    #gsiSetup{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+      padding:14px 18px;margin-top:16px;font-size:.84rem;color:var(--muted)}
+    #gsiSetup ol{margin:8px 0 0;padding-left:20px}
+    #gsiSetup li{margin-bottom:6px}
+    #gsiSetup code{font:700 .78rem var(--mono);color:var(--primary);background:var(--bg);
+      padding:1px 6px;border-radius:5px}
+
+    /* editor */
+    #view-editor{display:flex;flex-direction:column;height:calc(100vh - 57px)}
+    .e-bar{display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid var(--line);
+      background:var(--panel);flex-wrap:wrap}
+    .e-bar .lbl{font:700 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+    .e-hint{margin-left:auto;font:600 .74rem var(--mono);color:var(--muted2)}
+    #cvFrame{flex:1;width:100%;border:0;background:var(--bg)}
+
+    /* drawer (links editor) — shared styling with the CV page */
+    .admin-drawer{position:fixed;top:0;right:0;bottom:0;width:352px;max-width:94vw;background:var(--side);
+      border-left:1px solid var(--line);z-index:70;box-shadow:var(--shadow);padding:20px 18px 28px;
+      transform:translateX(105%);transition:transform .3s ease;overflow-y:auto;
+      display:flex;flex-direction:column;gap:14px}
+    .admin-drawer.open{transform:none}
+    .admin-drawer .a-head{display:flex;align-items:center;justify-content:space-between}
+    .admin-drawer .a-head h3{font:800 1.3rem var(--head);text-transform:uppercase;letter-spacing:.5px;margin:0;color:var(--primary)}
+    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;
+      border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;transition:all .2s}
+    .icon-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .icon-btn svg{width:16px;height:16px;fill:currentColor}
+    .a-hint,.a-note{font-size:.8rem;color:var(--muted);line-height:1.55;margin:0}
+    .a-group{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel);
+      display:flex;flex-direction:column;gap:8px}
+    .a-group>b{font:700 .7rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted2)}
+    .a-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:9px;
+      padding:9px 12px;font:700 .85rem var(--body);cursor:pointer;text-align:left;transition:all .2s}
+    .a-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .l-row{display:flex;gap:6px;align-items:center}
+    .l-row input{min-width:0;flex:1;border:1px solid var(--line);background:var(--bg);color:var(--text);
+      border-radius:7px;padding:6px 8px;font:600 .76rem var(--body)}
+    .l-row .l-name{flex:0 0 76px}
+    .l-del{border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:7px;
+      width:26px;height:26px;flex-shrink:0;cursor:pointer;font-size:.8rem;line-height:1}
+    .l-del:hover{color:var(--red);border-color:var(--red)}
+
+    /* toast */
+    .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(14px);z-index:90;
+      background:var(--text);color:var(--bg);font:700 .84rem var(--body);padding:10px 18px;border-radius:99px;
+      opacity:0;transition:all .35s ease;pointer-events:none;box-shadow:var(--shadow);white-space:nowrap}
+    .toast.show{opacity:1;transform:translateX(-50%)}
+
+    @media (max-width:720px){
+      .e-hint{display:none}
+      .user-chip span{max-width:110px;overflow:hidden;text-overflow:ellipsis}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="a-top">
+    <a class="a-brand" href="academic.html" title="Back to the CV"><b>Admin</b></a>
+    <div id="userArea" hidden style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span id="userChip" class="user-chip"></span>
+      <button class="t-btn" id="btnLinks" type="button">Links</button>
+      <button class="t-btn" id="btnSave" type="button">Save</button>
+      <button class="t-btn primary" id="btnPublish" type="button" title="Commit your edits to GitHub — the live site updates automatically">🚀 Publish</button>
+      <button class="t-btn" id="btnExport" type="button">↓ Download HTML</button>
+      <button class="t-btn danger" id="btnReset" type="button">Reset</button>
+      <button class="t-btn" id="btnTheme" type="button" aria-label="Toggle dark mode">☾</button>
+      <button class="t-btn" id="btnSignOut" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <!-- SIGN IN -->
+  <section id="view-signin" class="gate" hidden>
+    <div class="gate-card">
+      <h1><b>Admin</b></h1>
+      <p>Sign in with your Google account to edit the CV.</p>
+      <div id="gsiButton"></div>
+      <div id="gsiSetup" hidden>
+        <b>One-time setup needed:</b>
+        <ol>
+          <li>Open <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">Google Cloud Console → Credentials</a></li>
+          <li>Create an <b>OAuth client ID</b> → type <b>Web application</b></li>
+          <li>Add the site URLs under <b>Authorized JavaScript origins</b> (e.g. <code>http://127.0.0.1:8642</code> and your <code>https://…github.io</code> address)</li>
+          <li>Copy the client ID and paste it into <code>admin.js</code> → <code>GOOGLE_CLIENT_ID</code></li>
+        </ol>
+      </div>
+      <p id="fileWarn" class="gate-warn" hidden>⚠ You opened this page from a file:// location. Serve it over http(s) (local server or GitHub Pages) — Google Sign-In and the live preview need it.</p>
+    </div>
+  </section>
+
+  <!-- DENIED -->
+  <section id="view-denied" class="gate" hidden>
+    <div class="gate-card deny">
+      <h1>Access <b>denied</b></h1>
+      <p>The account <b id="deniedEmail"></b> is not authorized to edit this CV.</p>
+      <button class="t-btn" id="btnRetry" type="button">Try another account</button>
+    </div>
+  </section>
+
+  <!-- EDITOR (always visible — the CV shows even before signing in) -->
+  <section id="view-editor">
+    <div class="e-bar" hidden>
+      <span class="lbl">Add</span>
+      <button class="t-btn" data-add=".resume-item" data-sec="experience" type="button">+ Experience</button>
+      <button class="t-btn" data-add=".resume-item" data-sec="education" type="button">+ Education</button>
+      <button class="t-btn" data-add=".skill-block" data-sec="skills" type="button">+ Skill block</button>
+      <button class="t-btn" data-add=".pub" data-sec="papers" type="button">+ Paper</button>
+      <span class="e-hint">click text to edit · click links to change URL · click a paper's type pill to switch it · drag ⠿ to reorder</span>
+    </div>
+    <iframe id="cvFrame" title="CV live preview"></iframe>
+  </section>
+
+  <!-- LINKS DRAWER -->
+  <aside class="admin-drawer" id="drawer" aria-label="Sidebar links editor" aria-hidden="true">
+    <div class="a-head">
+      <h3>Sidebar links</h3>
+      <button class="icon-btn" id="drawerClose" aria-label="Close panel" type="button">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <p class="a-hint">Rename, re-URL, add or remove the profile icons shown on the CV's left sidebar. Press <b>Save</b> afterwards.</p>
+    <div class="a-group">
+      <b>Links</b>
+      <div id="linkRows"></div>
+      <button class="a-btn" id="addLink" type="button">+ Add link</button>
+    </div>
+    <div class="a-group">
+      <b>GitHub publishing</b>
+      <div class="l-row"><input id="ghRepo" type="text" placeholder="alexamben/alexamben.github.io" spellcheck="false"></div>
+      <div class="l-row"><input id="ghToken" type="password" placeholder="GitHub token (paste once)" spellcheck="false"></div>
+      <p class="a-note" style="margin:0">One-time: create a token at <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub → Personal access tokens</a> for your CV repo with <b>Contents: Read and write</b>, then paste it here. It is stored in this browser only and can be revoked on GitHub anytime.</p>
+    </div>
+    <p class="a-note"><b>Save</b> updates the CV in this browser. <b>🚀 Publish</b> commits your edits to GitHub — the live website updates automatically for everyone within about a minute.</p>
+  </aside>
+
+  <script src="https://accounts.google.com/gsi/client?hl=en" async defer></script>
+  <script src="7lhk23n6.js?v=6"></script>
+</body>
+</html>

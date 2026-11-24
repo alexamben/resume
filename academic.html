@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f9fa">
+  <meta name="description" content="Mehdi Chanaa — Network Security Administrator and DevSecOps PhD researcher, Marrakesh, Morocco. Perimeter security, WAF, behavioral malware detection and security automation.">
+  <meta property="og:title" content="Mehdi Chanaa — Network Security & DevSecOps">
+  <meta property="og:description" content="Network security administrator, IT consultant and DevSecOps researcher. Marrakesh, Morocco.">
+  <meta property="og:type" content="profile">
+  <title>Mehdi Chanaa | Network Security &amp; DevSecOps</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23298ff5'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='800' fill='white' text-anchor='middle'%3EMC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Mehdi Chanaa",
+   "jobTitle":"Network Security Administrator","email":"mailto:mehdi.chanaa@gmail.com",
+   "telephone":"+212656430814","worksFor":{"@type":"CollegeOrUniversity","name":"Cadi Ayyad University"},
+   "address":{"@type":"PostalAddress","addressLocality":"Marrakesh","addressCountry":"MA"},
+   "alumniOf":["National School of Applied Sciences of Marrakech","FST Settat","Faculty of Sciences of Rabat"],
+   "sameAs":["https://www.linkedin.com/in/mehdi-chanaa","https://scholar.google.com/citations?user=OnWQqf8AAAAJ","https://www.researchgate.net/profile/Mehdi-Chanaa","https://orcid.org/0009-0006-1619-8156","https://www.scopus.com/authid/detail.uri?authorId=60377242000","https://www.webofscience.com/wos/author/record/MZR-9565-2025"],"knowsLanguage":["ar","fr","en"]}
+  </script>
+  <style>
+    :root{
+      --primary:#298ff5; --primary-ink:#0b5ed7;
+      --sidebar-w:300px;
+      --head:"Saira Extra Condensed","Arial Narrow",system-ui,sans-serif;
+      --body:"Mulish",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+    }
+    html[data-theme="light"]{
+      --bg:#ffffff; --side:#f8f9fa; --panel:#f1f5f9;
+      --line:#e2e8f0; --text:#212529; --muted:#5b6773; --muted2:#7b8792;
+      --shadow:0 10px 30px #0a253014;
+      color-scheme:light;
+    }
+    html[data-theme="dark"]{
+      --bg:#0e141b; --side:#121a24; --panel:#1a2430;
+      --line:#26333f; --text:#e8eef3; --muted:#a3b2bd; --muted2:#7e8e9a;
+      --primary:#5aa8f7; --primary-ink:#7db8f9;
+      --shadow:0 12px 34px #0007;
+      color-scheme:dark;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font:16px/1.6 var(--body);
+      transition:background .3s ease,color .3s ease}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:4px}
+    ::selection{background:var(--primary);color:#fff}
+    img{max-width:100%}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip{position:absolute;left:-100vw;top:0;background:var(--primary);color:#fff;padding:10px 16px;z-index:99;font-weight:700}
+    .skip:focus{left:10px}
+
+    h1,h2,h3{font-family:var(--head);text-transform:uppercase;font-weight:700;line-height:1.15;margin:0}
+    h1{font-size:clamp(3rem,4.5vw,4.2rem);font-weight:800;letter-spacing:.5px;color:var(--text)}
+    h1 .accent{color:var(--primary)}
+    h2{font-size:clamp(2rem,3.2vw,2.9rem);letter-spacing:.5px;margin-bottom:2.6rem;position:relative;padding-bottom:.55rem}
+    h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:4px;border-radius:2px;background:var(--primary)}
+    h3{font-size:1.55rem;letter-spacing:.4px;color:var(--primary);text-transform:none}
+    p{margin:0 0 1rem}
+    .muted{color:var(--muted)}
+
+    /* ---------- layout ---------- */
+    .side{position:fixed;inset:0 auto 0 0;width:var(--sidebar-w);background:var(--side);
+      border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;
+      padding:34px 22px 20px;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;
+      z-index:30;transition:background .3s ease}
+    .side::-webkit-scrollbar{display:none}
+    .content{margin-left:var(--sidebar-w);padding:0 0 60px}
+
+    /* ---------- sidebar ---------- */
+    .avatar-wrap{width:150px;height:150px;border-radius:50%;overflow:hidden;flex-shrink:0;
+      border:5px solid color-mix(in srgb,var(--primary) 32%,transparent);
+      box-shadow:var(--shadow);background:var(--panel)}
+    .avatar-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .side h1{text-align:center;font-size:2.35rem;margin-top:20px;letter-spacing:.5px;white-space:nowrap}
+    .side .who{text-align:center;color:var(--muted);font-size:.92rem;margin-top:2px}
+    .socials{display:flex;gap:6px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:31px;height:31px;
+      border-radius:50%;background:var(--panel);color:var(--muted);border:1px solid var(--line);
+      transition:all .2s}
+    .socials a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px)}
+    .socials svg{width:14px;height:14px;fill:currentColor}
+    .side-nav{margin-top:26px;display:flex;flex-direction:column;gap:2px;width:100%}
+    .side-nav a{display:flex;align-items:center;gap:12px;padding:9px 14px;border-radius:9px;
+      color:var(--muted);font-weight:700;font-size:.95rem;transition:all .2s}
+    .side-nav a svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .side-nav a:hover{color:var(--text);background:var(--panel)}
+    .side-nav a.active{color:var(--primary)}
+    /* ---------- mobile top bar ---------- */
+    .m-top{display:none;position:sticky;top:0;z-index:40;background:var(--side);
+      border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+    .m-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+    .m-brand{font-family:var(--head);font-weight:800;font-size:1.35rem;text-transform:uppercase;letter-spacing:.5px}
+    .m-brand span{color:var(--primary)}
+    .m-actions{display:flex;gap:8px}
+    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;
+      border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;transition:all .2s}
+    .icon-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .icon-btn svg{width:16px;height:16px;fill:currentColor}
+
+    /* ---------- sections ---------- */
+    .section{max-width:860px;margin:0 auto;padding:78px 56px 24px;scroll-margin-top:20px}
+    .resume-item{margin-bottom:2.6rem}
+    .resume-item .head{position:relative;padding-right:170px}
+    .resume-item h3{margin-bottom:2px}
+    .resume-item .date{position:absolute;right:0;top:2px;font:700 .8rem var(--mono);color:#fff;
+      background:var(--primary);padding:5px 13px;border-radius:99px;white-space:nowrap}
+    html[data-theme="dark"] .resume-item .date{color:#08121e}
+    .resume-item .org{font-style:italic;color:var(--muted);font-size:1.02rem;margin:2px 0 10px}
+    .resume-item ul{margin:0;padding-left:20px;color:var(--muted)}
+    .resume-item li{margin-bottom:6px}
+    .resume-item li::marker{color:var(--primary)}
+    .kw{display:flex;flex-wrap:wrap;justify-content:space-between;column-gap:8px;row-gap:10px;margin-top:12px}
+    .kw .kw-break{flex-basis:100%;height:0}
+    .kw span{font:600 .74rem var(--mono);background:var(--panel);border:1px solid var(--line);
+      color:var(--muted);border-radius:99px;padding:4px 12px;transition:all .2s}
+    .kw span:hover{color:var(--primary);border-color:var(--primary)}
+
+    /* about / bio */
+    .bio{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:820px;text-align:justify}
+    .bio b{color:var(--text)}
+
+    /* skills */
+    .skill-block{margin-bottom:2.4rem}
+    .skill-block h3{font-size:1.25rem;margin-bottom:14px;text-transform:none;letter-spacing:.3px;color:var(--text)}
+    .skill-block h3 svg{width:18px;height:18px;fill:var(--primary);vertical-align:-3px;margin-right:9px}
+
+    /* papers */
+    .pub{border:1px solid var(--line);border-left:4px solid var(--primary);border-radius:12px;
+      padding:22px 24px;margin-bottom:1.4rem;background:var(--panel);transition:transform .2s,box-shadow .2s}
+    .pub:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .pub .p-title{font-weight:800;font-size:1.04rem;color:var(--text);line-height:1.45;margin-bottom:6px}
+    .pub .p-meta{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+    .p-type{display:inline-block;font:700 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;
+      color:var(--primary);border:1.5px solid color-mix(in srgb,var(--primary) 45%,transparent);
+      border-radius:99px;padding:3px 11px;margin-bottom:12px}
+    .pub .p-links a{display:inline-flex;align-items:center;gap:6px;font:700 .78rem var(--mono);
+      color:var(--primary);margin-right:16px}
+    .pub .p-links a:hover{text-decoration:underline}
+    .pub .p-links svg{width:13px;height:13px;fill:currentColor}
+
+    footer{margin-left:var(--sidebar-w);padding:26px 56px;border-top:1px solid var(--line);
+      color:var(--muted2);font:600 .78rem var(--mono);letter-spacing:.05em;text-align:center}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* theme + print floating buttons */
+    .float-btns{position:fixed;right:20px;bottom:20px;z-index:35;display:flex;gap:9px}
+    .float-btns .icon-btn{background:var(--side);box-shadow:var(--shadow);width:42px;height:42px}
+    #adminBtn.active{border-color:var(--primary);color:var(--primary)}
+
+    /* ---------- admin panel ---------- */
+    .admin-drawer{position:fixed;top:0;right:0;bottom:0;width:352px;max-width:94vw;background:var(--side);
+      border-left:1px solid var(--line);z-index:70;box-shadow:var(--shadow);padding:20px 18px 28px;
+      transform:translateX(105%);transition:transform .3s ease;overflow-y:auto;
+      display:flex;flex-direction:column;gap:14px}
+    .admin-drawer.open{transform:none}
+    .admin-drawer .a-head{display:flex;align-items:center;justify-content:space-between}
+    .admin-drawer .a-head h3{font:800 1.3rem var(--head);text-transform:uppercase;letter-spacing:.5px;margin:0;color:var(--primary)}
+    .a-hint,.a-note{font-size:.8rem;color:var(--muted);line-height:1.55;margin:0}
+    .a-group{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel);
+      display:flex;flex-direction:column;gap:8px}
+    .a-group>b{font:700 .7rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted2)}
+    .a-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:9px;
+      padding:9px 12px;font:700 .85rem var(--body);cursor:pointer;text-align:left;transition:all .2s}
+    .a-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .a-btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+    .a-btn.primary:hover{color:#fff;filter:brightness(1.08)}
+    .a-btn.danger{color:#c03a3c;border-color:#c03a3c55}
+    .a-btn.danger:hover{background:#c03a3c;color:#fff;border-color:#c03a3c}
+    .l-row{display:flex;gap:6px;align-items:center}
+    .l-row input{min-width:0;flex:1;border:1px solid var(--line);background:var(--bg);color:var(--text);
+      border-radius:7px;padding:6px 8px;font:600 .76rem var(--body)}
+    .l-row .l-name{flex:0 0 76px}
+    .l-del{border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:7px;
+      width:26px;height:26px;flex-shrink:0;cursor:pointer;font-size:.8rem;line-height:1}
+    .l-del:hover{color:#c03a3c;border-color:#c03a3c}
+    body.admin-on [contenteditable]{outline:1.5px dashed color-mix(in srgb,var(--primary) 55%,transparent);
+      outline-offset:3px;border-radius:5px;cursor:text}
+    body.admin-on [contenteditable]:hover{outline-color:var(--primary);
+      background:color-mix(in srgb,var(--primary) 6%,transparent)}
+    body.admin-on .reveal{opacity:1;transform:none}
+    .resume-item,.pub,.skill-block{position:relative}
+    .adm-del{position:absolute;top:10px;right:10px;z-index:6;width:26px;height:26px;border-radius:8px;
+      border:1px solid #c03a3c66;background:var(--bg);color:#c03a3c;cursor:pointer;font-size:.85rem;line-height:1}
+    .adm-del:hover{background:#c03a3c;color:#fff;border-color:#c03a3c}
+    .adm-drag{position:absolute;top:10px;right:44px;z-index:6;width:26px;height:26px;border-radius:8px;
+      border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:grab;
+      font-size:.85rem;line-height:1;letter-spacing:-1px}
+    .adm-drag:hover{color:var(--primary);border-color:var(--primary)}
+    [draggable="true"]{opacity:.65;cursor:grabbing}
+    .drag-cue-top{box-shadow:0 -4px 0 -1px var(--primary)}
+    .drag-cue-bottom{box-shadow:0 4px 0 -1px var(--primary)}
+    body.admin-on .p-type{cursor:pointer}
+    .adm-add{margin-top:10px;width:100%;padding:10px;border:1.5px dashed color-mix(in srgb,var(--primary) 50%,transparent);
+      background:transparent;color:var(--primary);border-radius:10px;font:700 .85rem var(--body);cursor:pointer}
+    .adm-add:hover{background:color-mix(in srgb,var(--primary) 10%,transparent)}
+    .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(14px);z-index:80;
+      background:var(--text);color:var(--bg);font:700 .84rem var(--body);padding:10px 18px;border-radius:99px;
+      opacity:0;transition:all .35s ease;pointer-events:none;box-shadow:var(--shadow);white-space:nowrap}
+    .toast.show{opacity:1;transform:translateX(-50%)}
+
+    /* ---------- responsive ---------- */
+    @media (max-width:991px){
+      .side{display:none}
+      .content{margin-left:0}
+      .m-top{display:block}
+      .section{padding:54px 22px 16px}
+      footer{margin-left:0;padding:22px}
+      .resume-item .head{padding-right:0;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+      .resume-item .date{position:static}
+      .m-nav{display:none;flex-direction:column;padding:6px 14px 14px;border-top:1px solid var(--line)}
+      .m-nav.open{display:flex}
+      .m-nav a{display:flex;align-items:center;gap:11px;padding:11px 10px;border-radius:8px;
+        color:var(--muted);font-weight:700}
+      .m-nav a svg{width:15px;height:15px;fill:currentColor}
+      .m-nav a.active{color:var(--primary)}
+    }
+    @media (min-width:992px){
+      .m-nav{display:none!important}
+    }
+
+    /* reduced motion */
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+
+    /* ---------- print ---------- */
+    @media print{
+      :root{--sidebar-w:0px}
+      html[data-theme="dark"],html[data-theme="light"]{--bg:#fff;--side:#fff;--panel:#f4f6f8;
+        --line:#cfd8de;--text:#111;--muted:#3d4d58;--muted2:#5a6b76;--primary:#0b5ed7;--primary-ink:#0b5ed7}
+      .side,.m-top,.float-btns,.skip,.m-nav,.admin-drawer,.toast{display:none!important}
+      .content{margin-left:0}
+      body{font-size:12.5px}
+      h1{font-size:30px}
+      h2{font-size:20px;margin-bottom:14px}
+      h3{font-size:15px}
+      .section{padding:14px 34px;max-width:100%}
+      .resume-item{break-inside:avoid;margin-bottom:14px}
+      .pub{break-inside:avoid;box-shadow:none}
+      .reveal{opacity:1!important;transform:none!important}
+      .bio{font-size:12.5px}
+    }
+  </style>
+</head>
+<body id="page-top">
+  <a class="skip" href="#about">Skip to content</a>
+
+  <!-- ============ MOBILE TOP BAR ============ -->
+  <div class="m-top">
+    <div class="m-bar">
+      <span class="m-brand">Mehdi <span>Chanaa</span></span>
+      <div class="m-actions">
+        <button class="icon-btn" id="mTheme" aria-label="Toggle dark mode" type="button">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.39 5.39 0 0 1 12 3z"/></svg>
+        </button>
+        <button class="icon-btn" id="mMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mNav" type="button">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="m-nav" id="mNav" aria-label="Mobile navigation">
+      <a href="#about"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-9 1.7-9 5v2h18v-2c0-3.3-5.7-5-9-5z"/></svg>About</a>
+      <a href="#experience"><svg viewBox="0 0 24 24"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4z"/></svg>Experiences</a>
+      <a href="#education"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v3.64L12 21l7-4.18v-3.64L12 17z"/></svg>Education</a>
+      <a href="#skills"><svg viewBox="0 0 24 24"><path d="M13.3 3 12 8.5h4L9.5 21h-2l1.7-7H5l3.3-11zM19 13h-2.5l-1.6 8h-2l1.6-8H12l1.2-2h4.6z"/></svg>Skills</a>
+      <a href="#papers"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 1.5L18.5 9H13zM8 12h8v1.5H8zm0 4h8v1.5H8z"/></svg>Papers</a>
+    </nav>
+  </div>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side">
+    <div class="avatar-wrap">
+      <img id="avatar" src="Mehdi-Chanaa.webp" alt="Portrait of Mehdi Chanaa"
+           onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23298ff5%22/%3E%3Ctext x=%22100%22 y=%22127%22 font-family=%22Arial,sans-serif%22 font-size=%2280%22 font-weight=%22800%22 fill=%22white%22 text-anchor=%22middle%22%3EMC%3C/text%3E%3C/svg%3E';">
+    </div>
+    <h1>Mehdi <span class="accent">Chanaa</span></h1>
+    <p class="who">Network Security Administrator<br>PhD Researcher</p>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/mehdi-chanaa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+      </a>
+      <a href="https://github.com/alexamben" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://scholar.google.com/citations?user=OnWQqf8AAAAJ&hl=fr" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+        <svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+      </a>
+      <a href="https://www.researchgate.net/profile/Mehdi-Chanaa" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" title="ResearchGate">
+        <svg viewBox="0 0 24 24"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.123 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.558.177-.93a10.9 10.9 0 0 0 .043-1.207v-.82c0-.095-.047-.142-.14-.142h-3.064c-.094 0-.14.047-.14.141v.956c0 .094.046.14.14.14h1.666c.056 0 .084.03.084.086 0 .36 0 .62-.036.865-.038.244-.1.447-.147.606-.108.385-.348.664-.638.876-.29.212-.738.35-1.227.35-.545 0-.901-.15-1.21-.353-.306-.203-.517-.454-.67-.915a3.136 3.136 0 0 1-.147-.762 17.366 17.367 0 0 1-.034-.656c-.01-.26-.014-.572-.014-.939a26.401 26.403 0 0 1 .014-.938 15.821 15.822 0 0 1 .035-.656 3.19 3.19 0 0 1 .148-.76 1.89 1.89 0 0 1 .742-1.01c.344-.244.593-.352 1.137-.352.508 0 .815.096 1.144.303.33.207.528.492.764.925.047.094.111.118.198.07l1.044-.43c.075-.048.09-.115.042-.199a3.549 3.549 0 0 0-.466-.742 3 3 0 0 0-.679-.607 3.313 3.313 0 0 0-.903-.41A4.068 4.068 0 0 0 19.586 0zM8.217 5.836c-1.69 0-3.036.086-4.297.086-1.146 0-2.291 0-3.007-.029v.831l1.088.2c.744.144 1.174.488 1.174 2.264v11.288c0 1.777-.43 2.12-1.174 2.263l-1.088.2v.832c.773-.029 2.12-.086 3.465-.086 1.29 0 2.951.057 3.667.086v-.831l-1.49-.2c-.773-.115-1.174-.487-1.174-2.264v-4.784c.688.057 1.29.057 2.206.057 1.748 3.123 3.41 5.472 4.355 6.56.86 1.032 2.177 1.691 3.839 1.691.487 0 1.003-.086 1.318-.23v-.744c-1.031 0-2.063-.716-2.808-1.518-1.26-1.376-2.95-3.582-4.355-6.074 2.32-.545 4.04-2.722 4.04-4.9 0-3.208-2.492-4.698-5.758-4.698zm-.515 1.29c2.406 0 3.839 1.26 3.839 3.552 0 2.263-1.547 3.782-4.097 3.782-.974 0-1.404-.03-2.063-.086v-7.19c.66-.059 1.547-.059 2.32-.059z"/></svg>
+      </a>
+      <a href="https://orcid.org/0009-0006-1619-8156" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg>
+      </a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=60377242000" target="_blank" rel="noopener noreferrer" aria-label="Scopus" title="Scopus">
+        <svg viewBox="0 0 24 24"><path d="M24 19.059l-.14-1.777c-1.426.772-2.945 1.076-4.465 1.076-3.319 0-5.96-2.782-5.96-6.475 0-3.903 2.595-6.31 5.633-6.31 1.917 0 3.39.303 4.792 1.075L24 4.895c-1.286-.608-2.337-.889-4.698-.889-4.534 0-7.97 3.53-7.97 8.017 0 5.12 4.09 7.924 7.9 7.924 1.916 0 3.506-.257 4.768-.888zm-14.954-3.46c0-2.22-1.964-3.225-3.857-4.347C3.716 10.364 2.15 9.756 2.15 8.12c0-1.215.889-2.548 2.642-2.548 1.519 0 2.57.234 3.903 1.029l.117-1.847c-1.239-.514-2.127-.748-4.137-.748C1.8 4.006.047 5.876.047 8.26c0 2.384 2.103 3.413 4.02 4.581 1.426.865 2.922 1.45 2.922 2.992 0 1.496-1.333 2.571-2.922 2.571-1.566 0-2.594-.35-3.786-1.075L0 19.176c1.215.56 2.454.818 4.16.818 2.385 0 4.885-1.473 4.885-4.395z"/></svg>
+      </a>
+      <a href="https://www.webofscience.com/wos/author/record/MZR-9565-2025" target="_blank" rel="noopener noreferrer" aria-label="Web of Science" title="Web of Science">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.6" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M6.6 8.1l2.2 7.8 3.2-6.5 3.2 6.5 2.2-7.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <nav class="side-nav" aria-label="Sections">
+      <a href="#about"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-9 1.7-9 5v2h18v-2c0-3.3-5.7-5-9-5z"/></svg>About</a>
+      <a href="#experience"><svg viewBox="0 0 24 24"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4z"/></svg>Experiences</a>
+      <a href="#education"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v3.64L12 21l7-4.18v-3.64L12 17z"/></svg>Education</a>
+      <a href="#skills"><svg viewBox="0 0 24 24"><path d="M13.3 3 12 8.5h4L9.5 21h-2l1.7-7H5l3.3-11zM19 13h-2.5l-1.6 8h-2l1.6-8H12l1.2-2h4.6z"/></svg>Skills</a>
+      <a href="#papers"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 1.5L18.5 9H13zM8 12h8v1.5H8zm0 4h8v1.5H8z"/></svg>Papers</a>
+    </nav>
+  </aside>
+
+  <!-- ============ CONTENT ============ -->
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2>About</h2>
+      <p class="bio">
+        I am a network and security professional with experience in both industry and academia. At present,
+        I manage network security at <b>Cadi Ayyad University</b> in Marrakesh, where I administer firewalls
+        and the web application firewall, monitor campus traffic and handle security incidents. In parallel,
+        I am pursuing a <b>PhD in DevSecOps</b> at ENSA Marrakech, focusing on detecting malicious software
+        efficiently within development pipelines.
+      </p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <h2>Experiences</h2>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>Network Security Administrator</h3>
+          <span class="date">Dec 2023 — Present</span>
+        </div>
+        <p class="org">Cadi Ayyad University — Marrakech, Morocco</p>
+        <ul>
+          <li>Ensure and install solutions to guarantee the security, availability and integrity of the university's information systems and data.</li>
+          <li>Assess the vulnerability of information systems to different types of attacks, and the risks tied to potential vulnerabilities.</li>
+          <li>Define the university's security policy, and determine the action plan and resources needed to enforce it.</li>
+          <li>Monitor and analyze security incidents and propose corrective solutions.</li>
+          <li>Participate in the design, deployment and management of network infrastructures.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>Teaching Assistant</h3>
+          <span class="date">Sep 2025 — Jan 2026</span>
+        </div>
+        <p class="org">Faculty of Sciences Semlalia (FSSM) — Marrakech, Morocco</p>
+        <ul>
+          <li>Led weekly tutorials and practical lab sessions focused on Python programming, data structures and algorithmic logic.</li>
+          <li>Guided students through live coding exercises, debugging and applying theoretical concepts to practical scripts.</li>
+          <li>Designed and graded lab assignments, quizzes and practical coding projects to assess student understanding.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>Network &amp; Telecommunication Engineer</h3>
+          <span class="date">Aug 2022 — Dec 2023</span>
+        </div>
+        <p class="org">AFD Tech (Bouygues Telecom) — Rabat, Morocco</p>
+        <ul>
+          <li>Optimization, analysis and correction of voice and data QoS degradations.</li>
+          <li>Verification of alarms, performance testing, and configuration and implementation of sites.</li>
+          <li>Validation of KPIs (availability, accessibility, drops, traffic, UL &amp; DL flow, interference, etc.).</li>
+          <li>Acceptance verification before the commercial opening of DI/VDR/RATP/5G sites.</li>
+          <li>Team management and process training for new interns and employees.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <h2>Education</h2>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>PhD, DevSecOps</h3>
+          <span class="date">2024 — Present</span>
+        </div>
+        <p class="org">National School of Applied Sciences of Marrakech (ENSA), Cadi Ayyad University</p>
+      </div>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>Master's, Engineering of Computer Networks &amp; Intelligent Telecommunications Systems</h3>
+          <span class="date">2022</span>
+        </div>
+        <p class="org">Faculty of Sciences and Techniques of Settat, Hassan First University</p>
+      </div>
+
+      <div class="resume-item reveal">
+        <div class="head">
+          <h3>Bachelor's, Networks &amp; Telecommunications</h3>
+          <span class="date">2019</span>
+        </div>
+        <p class="org">Faculty of Sciences of Rabat, Mohammed V University</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <h2>Skills</h2>
+
+      <div class="skill-block reveal">
+        <div class="kw">
+          <span>Cybersecurity</span><span>Web Application Firewalls</span><span>Firewall Administration</span>
+          <span>ACLs</span><span>VPN</span><span>IDS/IPS</span><span>SIEM</span>
+          <i class="kw-break"></i>
+          <span>Encryption</span><span>Cyber Defense</span><span>IT Risk Management</span>
+          <span>Governance</span><span>Endpoints Security</span><span>Linux</span>
+          <i class="kw-break"></i>
+          <span>Windows Server</span><span>Bash</span><span>PowerShell</span><span>Python</span>
+          <span>Network Engineering</span><span>Routing &amp; Switching</span>
+          <i class="kw-break"></i>
+          <span>Microsoft Azure</span><span>DevSecOps</span><span>Automation</span>
+          <span>System Optimization</span><span>Troubleshooting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAPERS -->
+    <section class="section" id="papers">
+      <h2>Papers</h2>
+
+      <article class="pub reveal">
+        <span class="p-type">Conference paper</span>
+        <div class="p-title">Behavioral Malware Detection Improvement in DevSecOps using Detection-Throughput Trade-Off Metric</div>
+        <div class="p-links">
+          <a href="https://doi.org/10.1109/ICOA66896.2025.11236868" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3zM5 5h6V3H3v18h18v-8h-2v6H5z"/></svg>
+            DOI: 10.1109/ICOA66896.2025.11236868
+          </a>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Mehdi Chanaa
+  </footer>
+
+  <!-- floating actions -->
+  <div class="float-btns">
+    <button class="icon-btn" id="dTheme" aria-label="Toggle dark mode" title="Toggle dark mode" type="button">
+      <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.39 5.39 0 0 1 12 3z"/></svg>
+    </button>
+  </div>
+
+  <script>
+  (function(){
+    "use strict";
+    var root = document.documentElement;
+    var RM   = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- apply saved edits (made in admin.html) ---------- */
+    var ADMIN_KEY = "mc-admin-v1";
+    function applyEdits(raw, live){
+      if (!raw) return;
+      try {
+        var d = JSON.parse(raw);
+        if (d.name)   document.querySelector(".side h1").innerHTML  = d.name;
+        if (d.who)    document.querySelector(".side .who").innerHTML = d.who;
+        if (d.footer) document.querySelector("footer").innerHTML     = d.footer;
+        var s = document.querySelector(".socials");
+        if (d.socials && d.socials.length && s) s.innerHTML = d.socials.join("");
+        Object.keys(d.sections || {}).forEach(function(id){
+          var el = document.getElementById(id);
+          if (el){
+            el.innerHTML = d.sections[id];
+            if (live) el.querySelectorAll(".reveal").forEach(function(x){ x.classList.add("in"); });
+          }
+        });
+      } catch(e){}
+    }
+    applyEdits((function(){ try { return localStorage.getItem(ADMIN_KEY); } catch(e){ return null; } })(), false);
+
+    /* live sync: the moment the admin page saves, update this page — no refresh needed */
+    window.addEventListener("storage", function(e){
+      if (e.key === ADMIN_KEY) applyEdits(e.newValue, true);
+    });
+    document.addEventListener("visibilitychange", function(){
+      if (!document.hidden){
+        try { applyEdits(localStorage.getItem(ADMIN_KEY), true); } catch(e){}
+      }
+    });
+
+    /* ---------- theme ---------- */
+    function applyTheme(t, save){
+      root.setAttribute("data-theme", t);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", t === "dark" ? "#0e141b" : "#f8f9fa");
+      if (save) { try { localStorage.setItem("mc-theme2", t); } catch(e){} }
+    }
+    var saved = null;
+    try { saved = localStorage.getItem("mc-theme2"); } catch(e){}
+    applyTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"), false);
+    ["mTheme","dTheme"].forEach(function(id){
+      var b = document.getElementById(id);
+      if (b) b.addEventListener("click", function(){
+        applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+      });
+    });
+
+    /* ---------- mobile menu ---------- */
+    var mMenu = document.getElementById("mMenu");
+    var mNav  = document.getElementById("mNav");
+    if (mMenu && mNav) {
+      mMenu.addEventListener("click", function(){
+        var open = mNav.classList.toggle("open");
+        mMenu.setAttribute("aria-expanded", String(open));
+      });
+      mNav.addEventListener("click", function(e){
+        if (e.target.tagName === "A") { mNav.classList.remove("open"); mMenu.setAttribute("aria-expanded","false"); }
+      });
+    }
+
+    /* ---------- scrollspy ---------- */
+    var allNavs = document.querySelectorAll('.side-nav a[href^="#"], .m-nav a[href^="#"]');
+    var map = {};
+    Array.prototype.forEach.call(allNavs, function(a){
+      var id = a.getAttribute("href").slice(1);
+      (map[id] = map[id] || []).push(a);
+    });
+    if ("IntersectionObserver" in window) {
+      var spy = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) {
+            Array.prototype.forEach.call(allNavs, function(a){ a.classList.remove("active"); });
+            (map[en.target.id] || []).forEach(function(a){ a.classList.add("active"); });
+          }
+        });
+      }, { rootMargin: "-35% 0px -55% 0px" });
+      document.querySelectorAll("main section[id]").forEach(function(s){ spy.observe(s); });
+    }
+
+    /* ---------- reveal ---------- */
+    var reveals = document.querySelectorAll(".reveal");
+    if (RM || !("IntersectionObserver" in window)) {
+      reveals.forEach(function(el){ el.classList.add("in"); });
+    } else {
+      var ro = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      reveals.forEach(function(el){ ro.observe(el); });
+    }
+  })();
+  </script>
+</body>
+</html>
